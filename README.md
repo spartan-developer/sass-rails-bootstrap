@@ -4,18 +4,10 @@ Bootstrap is Twitter's toolkit for kickstarting CSS for websites, apps, and more
 
 To get started -- checkout http://twitter.github.com/bootstrap!
 
-This gem provides the version of the toolkit with LESS stylesheets converted into SASS for use in the Rails 3.1+ projects.
+This gem provides the version of the toolkit with LESS stylesheets converted into SASS for use in Rails 3.1+ projects.
 
 
-## Versioning
-
-This gem will directly track the semantic versioning releases of the Twitter Bootstrap project. Our major and minor versions will always match to theirs.
-
-Currently, the gem reflects the Bootstrap version 2.0.1 up to the commit:
-https://github.com/twitter/bootstrap/commit/3d58b4622671bc51c22c857641db3b988e73632a
-
-
-## Installing
+## Installation
 
 This library requires the sass-rails gem to work. So make sure that you have something like this in your Gemfile:
 
@@ -23,8 +15,9 @@ This library requires the sass-rails gem to work. So make sure that you have som
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
 end
+```
 
-Then just include the following line in your Gemfile:
+Then include the following line in your Gemfile and you're all set:
 
 ```ruby
 gem 'sass-rails-bootstrap', :git => 'git://github.com/voidseeker/sass-rails-bootstrap.git'
@@ -46,7 +39,7 @@ You'll be able to replace some of the imported files with your own (`variables.c
 would be a good candidate for this), or include just a selected few files for you to use.
 
 Let's say that you want to use just the variables and mixins that come with Twitter Bootstrap.
-You can accomplish that with including the following lines in your `.css.sass` file:
+You can accomplish this by including the following lines in your `.css.sass` file:
 
 ```css
 @import "twitter/bootstrap/variables"
@@ -54,7 +47,7 @@ You can accomplish that with including the following lines in your `.css.sass` f
 ```
 
 As per the Bootstrap project, `twitter/bootstrap` doesn't include the responsive styles.
-You'd have to include the file manually to get them:
+You'd have to import the file manually to get them:
 
 ```css
 @import "twitter/bootstrap/responsive"
@@ -63,7 +56,7 @@ You'd have to include the file manually to get them:
 
 ### Javascripts
 
-As with the stylesheets, you have two options. You can include all of the script with a single directive,
+As with the stylesheets, you have two options. You can include all of the scripts with a single directive
 that goes into your `application.js` file:
 
 ```javascript
@@ -76,8 +69,15 @@ Or, you could include only the files you need:
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/button
 //= require twitter/bootstrap/scrollspy
-// etc.
 ```
+
+
+## Versioning
+
+This gem will directly track the semantic versioning releases of the Twitter Bootstrap project. Our major and minor versions will always match to theirs.
+
+Currently, the gem reflects the Bootstrap version 2.0.1 up to the commit:
+https://github.com/twitter/bootstrap/commit/3d58b4622671bc51c22c857641db3b988e73632a
 
 
 ## Copyright and license
