@@ -1,4 +1,8 @@
-= SassRailsBootstrap
+= Sass Rails Bootstrap
 
-Reflects the Bootstrap version up to the commit:
-https://github.com/twitter/bootstrap/commit/b0bd3efc4a5fba45020541115ec21ae7574442c7
+Bootstrap is Twitter's toolkit for kickstarting CSS for websites, apps, and more. It includes base CSS styles for typography, forms, buttons, tables, grids, navigation, alerts, and more.
+
+To get started -- checkout http://twitter.github.com/bootstrap!
+
+Reflects the Bootstrap version 2.0.1 up to the commit:
+https://github.com/twitter/bootstrap/commit/3d58b4622671bc51c22c857641db3b988e73632a
