@@ -53,19 +53,19 @@ table
 
 .table-bordered
   border: 1px solid #ddd
+  border-left: 0
   border-collapse: separate  // Done so we can round those corners!
   *border-collapse: collapsed  // IE7 can't round corners anyway
   +border-radius(4px)
-  th + th,
-  td + td,
-  th + td,
-  td + th
+  th,
+  td
     border-left: 1px solid #ddd
   // Prevent a double border
   thead:first-child tr:first-child th,
   tbody:first-child tr:first-child th,
   tbody:first-child tr:first-child td
     border-top: 0
+    border-bottom: 1px solid #ddd
   // For first th or td in the first row in the first thead or tbody
   thead:first-child tr:first-child th:first-child,
   tbody:first-child tr:first-child td:first-child
@@ -105,12 +105,6 @@ table
 // TABLE CELL SIZING
 // -----------------
 
-// Change the columns
-=table-columns($columnSpan: 1)
-  float: none
-  width: $gridColumnWidth * $columnSpan + $gridGutterWidth * ($columnSpan - 1) - 16
-  margin-left: 0
-  
 table
   .span1
     +table-columns(1)
@@ -136,3 +130,27 @@ table
     +table-columns(11)
   .span12
     +table-columns(12)
+  .span13
+    +table-columns(13)
+  .span14
+    +table-columns(14)
+  .span15
+    +table-columns(15)
+  .span16
+    +table-columns(16)
+  .span17
+    +table-columns(17)
+  .span18
+    +table-columns(18)
+  .span19
+    +table-columns(19)
+  .span20
+    +table-columns(20)
+  .span21
+    +table-columns(21)
+  .span22
+    +table-columns(22)
+  .span23
+    +table-columns(23)
+  .span24
+    +table-columns(24)

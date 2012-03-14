@@ -112,7 +112,6 @@
 // Site container
 // -------------------------
 =container-fixed
-  width: $gridRowWidth
   margin-left: auto
   margin-right: auto
   +clearfix
@@ -121,19 +120,31 @@
 // -------------------------
 =grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns)
   width: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1)
+  
 =grid-offset($gridColumnWidth, $gridGutterWidth, $columns)
   margin-left: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1) + $gridGutterWidth * 2
+  
 =grid-column($gridGutterWidth)
   float: left
   margin-left: $gridGutterWidth
+  
 =grid-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
   // Row surrounds the columns
   .row
     margin-left: $gridGutterWidth * -1
     +clearfix
+    
   // Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7, thanks @dhg)
   [class*="span"]
     +grid-column($gridGutterWidth)
+    
+  // Fixed containers
+  // Default container and reset for fixed navbars
+  .container,
+  .navbar-fixed-top .container,
+  .navbar-fixed-bottom .container
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $gridColumns)
+    
   // Default columns
   .span1
     +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 1)
@@ -157,9 +168,33 @@
     +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 10)
   .span11
     +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 11)
-  .span12,
-  .container
+  .span12
     +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12)
+  .span13
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 13)
+  .span14
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 14)
+  .span15
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 15)
+  .span16
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 16)
+  .span17
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 17)
+  .span18
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 18)
+  .span19
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 19)
+  .span20
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 20)
+  .span21
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 21)
+  .span22
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 22)
+  .span23
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 23)
+  .span24
+    +grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 24)
+    
   .offset1
     +grid-offset($gridColumnWidth, $gridGutterWidth, 1)
   .offset2
@@ -182,14 +217,40 @@
     +grid-offset($gridColumnWidth, $gridGutterWidth, 10)
   .offset11
     +grid-offset($gridColumnWidth, $gridGutterWidth, 11)
+  .offset12
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 12)
+  .offset13
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 13)
+  .offset14
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 14)
+  .offset15
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 15)
+  .offset16
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 16)
+  .offset17
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 17)
+  .offset18
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 18)
+  .offset19
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 19)
+  .offset20
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 20)
+  .offset21
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 21)
+  .offset22
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 22)
+  .offset23
+    +grid-offset($gridColumnWidth, $gridGutterWidth, 23)
 
 // Fluid grid system
 // -------------------------
 =fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns)
   width: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1)
+  
 =fluid-grid-column($fluidGridGutterWidth)
   float: left
   margin-left: $fluidGridGutterWidth
+  
 =fluid-grid-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth)
   // Row surrounds the columns
   .row-fluid
@@ -225,12 +286,37 @@
       +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 11)
     > .span12
       +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 12)
+    > .span13
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 13)
+    > .span14
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 14)
+    > .span15
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 15)
+    > .span16
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 16)
+    > .span17
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 17)
+    > .span18
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 18)
+    > .span19
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 19)
+    > .span20
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 20)
+    > .span21
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 21)
+    > .span22
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 22)
+    > .span23
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 23)
+    > .span24
+      +fluid-grid-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 24)
 
 
 // Input grid system
 // -------------------------
 =input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns)
   width: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1) - 10
+  
 =input-grid-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
   input,
   textarea,
@@ -259,6 +345,39 @@
       +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 11)
     &.span12
       +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12)
+    &.span13
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 13)
+    &.span14
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 14)
+    &.span15
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 15)
+    &.span16
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 16)
+    &.span17
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 17)
+    &.span18
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 18)
+    &.span19
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 19)
+    &.span20
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 20)
+    &.span21
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 21)
+    &.span22
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 22)
+    &.span23
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 23)
+    &.span24
+      +input-grid-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 24)
+      
+      
+// Table grid system
+// -------------------------
+=table-columns($columnSpan: 1)
+  float: none  // undo default grid column styles
+  width: (($gridColumnWidth) * $columnSpan) + ($gridGutterWidth * ($columnSpan - 1)) - 16  // 16 is total padding on left and right of table cells
+  margin-left: 0  // undo default grid column styles
+  
 
 // Make a Grid
 // -------------------------
@@ -271,6 +390,7 @@
   float: left
   margin-left: $gridGutterWidth
   width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1))
+  
 
 // Form field states (used in forms.css.sass)
 // --------------------------------------------------
@@ -476,7 +596,7 @@
   background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor)
   background-image: -moz-radial-gradient(circle, $innerColor, $outerColor)
   background-image: -ms-radial-gradient(circle, $innerColor, $outerColor)
-  // Opera cannot do radial gradients yet
+  background-image: -o-radial-gradient(circle, $innerColor, $outerColor)
   background-repeat: no-repeat
 =gradient-striped($color, $angle: -45deg)
   background-color: $color
@@ -492,7 +612,27 @@
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false)
 
 
-// Mixin for generating button backgrounds
+// COMPONENT MIXINS
+// --------------------------------------------------
+
+// Horizontal dividers
+// -------------------------
+// Dividers (basically an hr) within dropdowns and nav lists
+=nav-divider
+  height: 1px
+  margin: 5px 1px
+  overflow: hidden
+  background-color: #e5e5e5
+  border-bottom: 1px solid $white
+  
+  // IE7 needs a set width since we gave a height. Restricting just
+  // to IE7 to keep the 1px left/right space in other browsers.
+  // It is unclear where IE is getting the extra space that we need
+  // to negative-margin away, but so it goes.
+  *width: 100%
+  *margin: -5px 0 5px
+
+// Button backgrounds
 // ---------------------------------------
 =button-background($startColor, $endColor)
   // gradient-bar will set the background to a pleasing blend of these, to support IE<=9
@@ -508,12 +648,14 @@
   &.active
     background-color: darken($endColor, 10%) #{"\9"}
     
-
-
-// COMPONENT MIXINS
-// --------------------------------------------------
-
-// POPOVER ARROWS
+// Navbar vertical align
+// -------------------------
+// Vertically center elements in the navbar.
+// Example: an element has a height of 30px, so write out `.navbarVerticalAlign(30px);` to calculate the appropriate top margin.
+=navbar-vertical-align($elementHeight)
+  margin-top: ($navbarHeight - $elementHeight) / 2
+    
+// Popover arrows
 // -------------------------
 // For tipsies and popovers
 =popover-arrow-top($arrowWidth: 5px)
