@@ -434,12 +434,13 @@
   
 
 // The Grid
+=core-grid-span($columns, $gridColumnWidth, $gridGutterWidth)
+  width: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1)
+  
+=core-grid-offset($columns, $gridColumnWidth, $gridGutterWidth)
+  margin-left: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1) + $gridGutterWidth * 2
+  
 =core-grid-generate($gridColumnWidth, $gridGutterWidth)
-  =span($columns)
-    width: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1)
-    
-  =offset($columns)
-    margin-left: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1) + $gridGutterWidth * 2
 
   .row
     margin-left: $gridGutterWidth * -1
@@ -453,21 +454,21 @@
   .container,
   .navbar-fixed-top .container,
   .navbar-fixed-bottom .container
-    +span($gridColumns)
+    +core-grid-span($gridColumns, $gridColumnWidth, $gridGutterWidth)
     
   @for $i from 1 through $gridColumns
     .span#{$i}
-      +span($i)
+      +core-grid-span($i, $gridColumnWidth, $gridGutterWidth)
   
   @for $i from 1 to $gridColumns
     .offset#{$i}
-      +offset($i)
+      +core-grid-offset($i, $gridColumnWidth, $gridGutterWidth)
   
+  
+=fluid-grid-span($columns, $fluidGridColumnWidth, $fluidGridGutterWidth)
+  width: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1)
   
 =fluid-grid-generate($fluidGridColumnWidth, $fluidGridGutterWidth)
-  =span($columns)
-    width: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1)
-  
   .row-fluid
     width: 100%
     +clearfix
@@ -481,19 +482,19 @@
       
     @for $i from 1 through $gridColumns
       > .span#{$i}
-        +span($i)
+        +fluid-grid-span($i, $fluidGridColumnWidth, $fluidGridGutterWidth)
 
   
+=input-grid-span($columns, $gridColumnWidth, $gridGutterWidth)
+  width: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1) - 10
+  
 =input-grid-generate($gridColumnWidth, $gridGutterWidth)
-  =span($columns)
-    width: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1) - 10
-    
   input,
   textarea,
   .uneditable-input
     margin-left: 0  // override margin-left from core grid system
     @for $i from 1 through $gridColumns
       &.span#{$i}
-        +span($i)
+        +input-grid-span($i, $gridColumnWidth, $gridGutterWidth)
       
   
