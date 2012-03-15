@@ -5,17 +5,19 @@
 // Base styles
 // --------------------------------------------------
 
+// Core
 .btn
   display: inline-block
+  +ie7-inline-block
   padding: 4px 10px 4px
   font-size: $baseFontSize
   line-height: $baseLineHeight
   color: $grayDark
   text-align: center
   text-shadow: 0 1px 1px rgba(255,255,255,.75)
-  +button-background($white, darken($white, 10%))
-  border: 1px solid #ccc
-  border-bottom-color: #bbb
+  +button-background($btnBackground, $btnBackgroundHighlight)
+  border: 1px solid $btnBorder
+  border-bottom-color: darken($btnBorder, 10%)
   +border-radius(4px)
   $shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)
   +box-shadow($shadow)
@@ -117,22 +119,22 @@
 // Set the backgrounds
 // -------------------------
 .btn-primary
-  +button-background($primaryButtonBackground, adjust-hue($primaryButtonBackground, 20))
+  +button-background($btnPrimaryBackground, $btnPrimaryBackgroundHighlight)
 // Warning appears as orange
 .btn-warning
-  +button-background(lighten($orange, 15%), $orange)
+  +button-background($btnWarningBackground, $btnWarningBackgroundHighlight)
 // Danger and error appear as red
 .btn-danger
-  +button-background(#ee5f5b, #bd362f)
+  +button-background($btnDangerBackground, $btnDangerBackgroundHighlight)
 // Success appears as green
 .btn-success
-  +button-background(#62c462, #51a351)
+  +button-background($btnSuccessBackground, $btnSuccessBackgroundHighlight)
 // Info appears as a neutral blue
 .btn-info
-  +button-background(#5bc0de, #2f96b4)
+  +button-background($btnInfoBackground, $btnInfoBackgroundHighlight)
 // Inverse appears as dark-gray
 .btn-inverse
-  +button-background($gray, $grayDarker)
+  +button-background($btnInverseBackground, $btnInverseBackgroundHighlight)
       
 
 // Cross-browser jank
@@ -154,3 +156,6 @@ input[type="submit"].btn
   &.btn-small
     *padding-top: 3px
     *padding-bottom: 3px
+  &.btn-mini
+    *padding-top: 1px
+    *padding-bottom: 1px
