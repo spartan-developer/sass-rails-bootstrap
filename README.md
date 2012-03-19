@@ -20,7 +20,7 @@ end
 Then include the following line in your Gemfile and you're all set:
 
 ```ruby
-gem 'sass-rails-bootstrap', :git => 'git://github.com/voidseeker/sass-rails-bootstrap.git'
+gem 'sass-rails-bootstrap'
 ```
 
 
