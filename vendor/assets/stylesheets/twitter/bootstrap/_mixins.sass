@@ -496,7 +496,7 @@
   
 =fluid-grid-span($columns, $fluidGridColumnWidth, $fluidGridGutterWidth)
   width: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1)
-  *width: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5 / $gridRowWidth * 100 * 1%
+  *width: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5px / $gridRowWidth * 100 * 1%
   
 =fluid-grid-generate($fluidGridColumnWidth, $fluidGridGutterWidth)
   .row-fluid
@@ -507,7 +507,7 @@
       +input-block-level
       float: left
       margin-left: $fluidGridGutterWidth
-      *margin-left: $fluidGridGutterWidth - 0.5 / $gridRowWidth * 100 * 1%
+      *margin-left: $fluidGridGutterWidth - 0.5px / $gridRowWidth * 100 * 1%
       
     [class*="span"]:first-child
       margin-left: 0

@@ -50,7 +50,7 @@ As per the Bootstrap project, `twitter/bootstrap` doesn't include the responsive
 You'd have to import the file manually to get them:
 
 ```css
-@import "twitter/bootstrap/responsive"
+@import "twitter/bootstrap-responsive"
 ```
 
 
@@ -63,7 +63,7 @@ that goes into your `application.js` file:
 //= require twitter/bootstrap
 ```
 
-Or, you could include only the files you need:
+Alternatively, you could include only the files you need:
 
 ```javascript
 //= require twitter/bootstrap/alert
