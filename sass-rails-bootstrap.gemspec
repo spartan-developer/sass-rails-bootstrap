@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.description = "SASS version of the CSS toolkit from Twitter for Rails 3.1+ asset pipeline."
 
   s.files = Dir["{lib,vendor}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
-  s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.1"
 end

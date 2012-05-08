@@ -76,8 +76,8 @@ Or, you could include only the files you need:
 
 This gem will directly track the semantic versioning releases of the Twitter Bootstrap project. Our major and minor versions will always match to theirs.
 
-Currently, the gem reflects the Bootstrap version 2.0.1 up to the commit:
-https://github.com/twitter/bootstrap/commit/3d58b4622671bc51c22c857641db3b988e73632a
+Currently, this gem reflects the Bootstrap version 2.0.3 up to the commit:
+https://github.com/twitter/bootstrap/commit/b261f9781bbf31f499cb55c49451dc0c0ad43062
 
 
 ## Copyright and license
