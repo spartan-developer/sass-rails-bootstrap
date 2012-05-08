@@ -1,3 +1,3 @@
 module SassRailsBootstrap
-  VERSION = "2.0.3"
+  VERSION = "2.0.3a"
 end
