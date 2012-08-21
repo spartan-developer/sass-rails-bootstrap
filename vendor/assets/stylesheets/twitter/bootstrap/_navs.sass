@@ -1,6 +1,6 @@
-// NAVIGATIONS
-// -----------
-
+//
+// Navs
+// --------------------------------------------------
 
 
 // BASE CLASS
@@ -175,40 +175,34 @@
 // DROPDOWNS
 // ---------
 
-// Position the menu
-.nav-tabs .dropdown-menu,
+.nav-tabs .dropdown-menu
+  +border-radius(0 0 6px 6px)  // remove the top rounded corners here since there is a hard edge above the menu
+
 .nav-pills .dropdown-menu
-  margin-top: 1px
-  border-width: 1px
-  
-.nav-pills .dropdown-menu
-  +border-radius(4px)
+  +border-radius(6px)  // make rounded corners match the pills
 
 // Default dropdown links
 // -------------------------
 // Make carets use linkColor to start
-.nav-tabs .dropdown-toggle .caret,
-.nav-pills .dropdown-toggle .caret
+.nav .dropdown-toggle .caret
   border-top-color: $linkColor
   border-bottom-color: $linkColor
   margin-top: 6px
 
-.nav-tabs .dropdown-toggle:hover .caret,
-.nav-pills .dropdown-toggle:hover .caret
+.nav .dropdown-toggle:hover .caret
   border-top-color: $linkColorHover
   border-bottom-color: $linkColorHover
 
 // Active dropdown links
 // -------------------------
-.nav-tabs .active .dropdown-toggle .caret,
-.nav-pills .active .dropdown-toggle .caret
-  border-top-color: $grayDark
-  border-bottom-color: $grayDark
+.nav .active .dropdown-toggle .caret
+  border-top-color: #fff
+  border-bottom-color: #fff
 
 // Active:hover dropdown links
 // -------------------------
 .nav > .dropdown.active > a:hover
-  color: $black
+  color: #fff
   cursor: pointer
 
 // Open dropdowns
@@ -333,3 +327,16 @@
 .tabs-right > .nav-tabs .active > a:hover
   border-color: #ddd #ddd #ddd transparent
   *border-left-color: $white
+
+// DISABLED STATES
+// ---------------
+
+// Gray out text
+.nav > .disabled > a
+  color: $grayLight
+
+// Nuke hover effects
+.nav > .disabled > a:hover
+  text-decoration: none
+  background-color: transparent
+  cursor: default

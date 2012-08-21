@@ -1,20 +1,22 @@
-// LARGE DESKTOP & UP
-// ------------------
+//
+// Responsive: Large desktop and up
+// --------------------------------------------------
+
 
 @media (min-width: 1200px)
   // Fixed grid
-  +core-grid-generate(70px, 30px)
+  +core-grid-generate($gridColumnWidth1200, $gridGutterWidth1200)
 
   // Fluid grid
-  +fluid-grid-generate(5.982905983%, 2.564102564%)
+  +fluid-grid-generate($fluidGridColumnWidth1200, $fluidGridGutterWidth1200)
   
   // Input grid
-  +input-grid-generate(70px, 30px)
+  +input-grid-generate($gridColumnWidth1200, $gridGutterWidth1200)
 
   // Thumbnails
   .thumbnails
-    margin-left: -30px
+    margin-left: -$gridGutterWidth1200
   .thumbnails > li
-    margin-left: 30px
+    margin-left: $gridGutterWidth1200
   .row-fluid .thumbnails
     margin-left: 0

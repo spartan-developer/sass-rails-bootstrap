@@ -18,13 +18,18 @@
  * =========================================================== */
 
 
-!function ( $ ) {
+!function ($) {
 
- "use strict"
+  "use strict"; // jshint ;_;
+
+
+ /* POPOVER PUBLIC CLASS DEFINITION
+  * =============================== */
 
   var Popover = function ( element, options ) {
     this.init('popover', element, options)
   }
+
 
   /* NOTE: POPOVER EXTENDS BOOTSTRAP-TOOLTIP.js
      ========================================== */
@@ -38,8 +43,8 @@
         , title = this.getTitle()
         , content = this.getContent()
 
-      $tip.find('.popover-title')[this.isHTML(title) ? 'html' : 'text'](title)
-      $tip.find('.popover-content > *')[this.isHTML(content) ? 'html' : 'text'](content)
+      $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
+      $tip.find('.popover-content > *')[this.options.html ? 'html' : 'text'](content)
 
       $tip.removeClass('fade top bottom left right in')
     }
@@ -59,11 +64,17 @@
       return content
     }
 
-  , tip: function() {
+  , tip: function () {
       if (!this.$tip) {
         this.$tip = $(this.options.template)
       }
       return this.$tip
+    }
+
+  , destroy: function () {
+      var $e = this.$element
+      $e.off()
+      $e.removeData('popover')
     }
 
   })
@@ -72,7 +83,7 @@
  /* POPOVER PLUGIN DEFINITION
   * ======================= */
 
-  $.fn.popover = function ( option ) {
+  $.fn.popover = function (option) {
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('popover')
@@ -90,4 +101,4 @@
   , template: '<div class="popover"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
   })
 
-}( window.jQuery );
+}(window.jQuery);

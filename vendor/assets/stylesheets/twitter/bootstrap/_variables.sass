@@ -1,9 +1,9 @@
-// Variables to customize the look and feel of Bootstrap
-// -----------------------------------------------------
+//
+// Variables
+// --------------------------------------------------
 
 
-
-// GLOBAL VALUES
+// Global values
 // --------------------------------------------------
 
 
@@ -46,11 +46,11 @@ $linkColorHover:        darken($linkColor, 15%)
 // -------------------------
 $sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif
 $serifFontFamily:       Georgia, "Times New Roman", Times, serif
-$monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace
 
-$baseFontSize:          13px
+$baseFontSize:          14px
 $baseFontFamily:        $sansFontFamily
-$baseLineHeight:        18px
+$baseLineHeight:        20px
 $altFontFamily:         $serifFontFamily
 
 $headingsFontFamily:    inherit  // empty to use BS default, $baseFontFamily
@@ -73,7 +73,7 @@ $btnBackgroundHighlight:            darken($white, 10%)
 $btnBorder:                         #ccc
 
 $btnPrimaryBackground:              $linkColor
-$btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 15deg)
+$btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20deg)
 
 $btnInfoBackground:                 #5bc0de
 $btnInfoBackgroundHighlight:        #2f96b4
@@ -87,7 +87,7 @@ $btnWarningBackgroundHighlight:     $orange
 $btnDangerBackground:               #ee5f5b
 $btnDangerBackgroundHighlight:      #bd362f
 
-$btnInverseBackground:              $gray
+$btnInverseBackground:              #444
 $btnInverseBackgroundHighlight:     $grayDarker
 
 
@@ -104,12 +104,16 @@ $formActionsBackground:         #f5f5f5
 // -------------------------
 $dropdownBackground:            $white
 $dropdownBorder:                rgba(0, 0, 0, 0.2)
-$dropdownLinkColor:             $grayDark
-$dropdownLinkColorHover:        $white
-$dropdownLinkBackgroundHover:   $linkColor
 $dropdownDividerTop:            #e5e5e5
 $dropdownDividerBottom:         $white
 
+$dropdownLinkColor:             $grayDark
+
+$dropdownLinkColorHover:        $white
+$dropdownLinkBackgroundHover:   $grayLighter
+
+$dropdownLinkColorActive:       $dropdownLinkColor
+$dropdownLinkBackgroundActive:  $linkColor
 
 
 // COMPONENT VARIABLES
@@ -143,11 +147,16 @@ $placeholderText:       $grayLight
 $hrBorder:              $grayLighter
 
 
+// Wells
+// -------------------------
+$wellBackground:                  #f5f5f5
+
+
 // Navbar
 // -------------------------
 $navbarHeight:                    40px
-$navbarBackground:                $grayDarker
-$navbarBackgroundHighlight:       $grayDark
+$navbarBackground:                #111
+$navbarBackgroundHighlight:       #222
 
 $navbarText:                      $grayLight
 $navbarLinkColor:                 $grayLight
@@ -200,9 +209,26 @@ $gridColumnWidth:         60px
 $gridGutterWidth:         20px
 $gridRowWidth:            $gridColumns * $gridColumnWidth + $gridGutterWidth * ($gridColumns - 1)
 
+// 1200px min
+$gridColumnWidth1200:     70px
+$gridGutterWidth1200:     30px
+$gridRowWidth1200:        $gridColumns * $gridColumnWidth1200 + $gridGutterWidth1200 * ($gridColumns - 1)
+
+// 768px-979px
+$gridColumnWidth768:      42px
+$gridGutterWidth768:      20px
+$gridRowWidth768:         $gridColumns * $gridColumnWidth768 + $gridGutterWidth768 * ($gridColumns - 1)
+
 
 // Fluid grid
 // -------------------------
-$fluidGridColumnWidth:    6.382978723%
-$fluidGridGutterWidth:    2.127659574%
+$fluidGridColumnWidth:    percentage($gridColumnWidth / $gridRowWidth)
+$fluidGridGutterWidth:    percentage($gridGutterWidth / $gridRowWidth)
 
+// 1200px min
+$fluidGridColumnWidth1200:     percentage($gridColumnWidth1200 / $gridRowWidth1200)
+$fluidGridGutterWidth1200:     percentage($gridGutterWidth1200 / $gridRowWidth1200)
+
+// 768px-979px
+$fluidGridColumnWidth768:      percentage($gridColumnWidth768 / $gridRowWidth768)
+$fluidGridGutterWidth768:      percentage($gridGutterWidth768 / $gridRowWidth768)

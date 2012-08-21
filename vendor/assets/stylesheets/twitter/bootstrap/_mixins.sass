@@ -1,5 +1,6 @@
-// Snippets of reusable CSS to develop faster and keep code readable
-// -----------------------------------------------------------------
+//
+// Mixins
+// --------------------------------------------------
 
 
 // UTILITY MIXINS
@@ -10,9 +11,13 @@
 // For clearing floats like a boss h5bp.com/q
 =clearfix
   *zoom: 1
-  &:before, &:after
+  &:before,
+  &:after
     display: table
     content: ""
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0
   &:after
     clear: both
 
@@ -166,6 +171,45 @@
   -moz-border-radius: $radius
   border-radius: $radius
 
+// Single Corner Border Radius
+=border-top-left-radius($radius)
+  -webkit-border-top-left-radius: $radius
+  -moz-border-radius-topleft: $radius
+  border-top-left-radius: $radius
+
+=border-top-right-radius($radius)
+  -webkit-border-top-right-radius: $radius
+  -moz-border-radius-topright: $radius
+  border-top-right-radius: $radius
+
+=border-bottom-right-radius($radius)
+  -webkit-border-bottom-right-radius: $radius
+  -moz-border-radius-bottomright: $radius
+  border-bottom-right-radius: $radius
+
+=border-bottom-left-radius($radius)
+  -webkit-border-bottom-left-radius: $radius
+  -moz-border-radius-bottomleft: $radius
+  border-bottom-left-radius: $radius
+
+// Single Side Border Radius
+=border-top-radius($radius)
+  +border-top-right-radius($radius)
+  +border-top-left-radius($radius)
+
+=border-right-radius($radius)
+  +border-top-right-radius($radius)
+  +border-bottom-right-radius($radius)
+
+=border-bottom-radius($radius)
+  +border-bottom-right-radius($radius)
+  +border-bottom-left-radius($radius)
+
+=border-left-radius($radius)
+  +border-top-left-radius($radius)
+  +border-bottom-left-radius($radius)
+
+
 // Drop shadows
 =box-shadow($shadow)
   -webkit-box-shadow: $shadow
@@ -176,7 +220,6 @@
 =transition($transition)
   -webkit-transition: $transition
   -moz-transition: $transition
-  -ms-transition: $transition
   -o-transition: $transition
   transition: $transition
 
@@ -212,7 +255,6 @@
 =translate3d($x, $y, $z)
   -webkit-transform: translate($x, $y, $z)
   -moz-transform: translate($x, $y, $z)
-  -ms-transform: translate($x, $y, $z)
   -o-transform: translate($x, $y, $z)
   transform: translate($x, $y, $z)
 
@@ -223,7 +265,6 @@
 =backface-visibility($visibility)
   -webkit-backface-visibility: $visibility
   -moz-backface-visibility: $visibility
-  -ms-backface-visibility: $visibility
   backface-visibility: $visibility
 
 // Background clipping
@@ -245,7 +286,6 @@
 =box-sizing($boxmodel)
   -webkit-box-sizing: $boxmodel
   -moz-box-sizing: $boxmodel
-  -ms-box-sizing: $boxmodel
   box-sizing: $boxmodel
 
 // User select
@@ -308,22 +348,20 @@
 =gradient-horizontal($startColor: #555, $endColor: #333)
   background-color: $endColor
   background-image: -moz-linear-gradient(left, $startColor, $endColor)  // FF 3.6+
-  background-image: -ms-linear-gradient(left, $startColor, $endColor)  // IE10
   background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor))  // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(left, $startColor, $endColor)  // Safari 5.1+, Chrome 10+
   background-image: -o-linear-gradient(left, $startColor, $endColor)  // Opera 11.10
-  background-image: linear-gradient(left, $startColor, $endColor)  // Le standard
+  background-image: linear-gradient(to right, $startColor, $endColor)  // Standard, IE10
   background-repeat: repeat-x
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($startColor)}', endColorstr='#{ie-hex-str($endColor)}', GradientType=1)  // IE9 and down
   
 =gradient-vertical($startColor: #555, $endColor: #333)
   background-color: mix($startColor, $endColor, 60%)
   background-image: -moz-linear-gradient(top, $startColor, $endColor)  // FF 3.6+
-  background-image: -ms-linear-gradient(top, $startColor, $endColor)  // IE10
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor))  // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(top, $startColor, $endColor)  // Safari 5.1+, Chrome 10+
   background-image: -o-linear-gradient(top, $startColor, $endColor)  // Opera 11.10
-  background-image: linear-gradient(top, $startColor, $endColor)  // The standard
+  background-image: linear-gradient(to bottom, $startColor, $endColor)  // Standard, IE10
   background-repeat: repeat-x
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($startColor)}', endColorstr='#{ie-hex-str($endColor)}', GradientType=0)  // IE9 and down
   
@@ -331,17 +369,15 @@
   background-color: $endColor
   background-repeat: repeat-x
   background-image: -moz-linear-gradient($deg, $startColor, $endColor)  // FF 3.6+
-  background-image: -ms-linear-gradient($deg, $startColor, $endColor)  // IE10
   background-image: -webkit-linear-gradient($deg, $startColor, $endColor)  // Safari 5.1+, Chrome 10+
   background-image: -o-linear-gradient($deg, $startColor, $endColor)  // Opera 11.10
-  background-image: linear-gradient($deg, $startColor, $endColor)  // The standard
+  background-image: linear-gradient($deg, $startColor, $endColor)  // Standard, IE10
   
 =gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f)
   background-color: mix($midColor, $endColor, 80%)
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor))
   background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor)
   background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor)
-  background-image: -ms-linear-gradient($startColor, $midColor $colorStop, $endColor)
   background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor)
   background-image: linear-gradient($startColor, $midColor $colorStop, $endColor)
   background-repeat: no-repeat
@@ -352,18 +388,16 @@
   background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($innerColor), to($outerColor))
   background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor)
   background-image: -moz-radial-gradient(circle, $innerColor, $outerColor)
-  background-image: -ms-radial-gradient(circle, $innerColor, $outerColor)
   background-image: -o-radial-gradient(circle, $innerColor, $outerColor)
   background-repeat: no-repeat
   
-=gradient-striped($color, $angle: -45deg)
+=gradient-striped($color, $angle: 45deg)
   background-color: $color
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent))
   background-image: -webkit-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent)
   background-image: -moz-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent)
-  background-image: -ms-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent)
   background-image: -o-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent)
-  background-image: \linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent)
+  background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent)
 
 // Reset filters for IE
 =reset-filter
@@ -417,35 +451,66 @@
 // Popover arrows
 // -------------------------
 // For tipsies and popovers
-=popover-arrow-top($arrowWidth: 5px, $color: $black)
-  bottom: 0
+=popover-arrow-top($arrowWidth: 10px, $color: rgba(0,0,0,.2))
+  bottom: -$arrowWidth
   left: 50%
   margin-left: -$arrowWidth
   border-left: $arrowWidth solid transparent
   border-right: $arrowWidth solid transparent
+  border-top: $arrowWidth solid #ccc
   border-top: $arrowWidth solid $color
-=popover-arrow-left($arrowWidth: 5px, $color: $black)
+  &:after
+    border-left: ($arrowWidth - 1) solid transparent
+    border-right: ($arrowWidth - 1) solid transparent
+    border-top: ($arrowWidth - 1) solid #fff
+    bottom: 1px
+    left: -$arrowWidth + 1
+
+=popover-arrow-right($arrowWidth: 10px, $color: rgba(0,0,0,.2))
   top: 50%
-  right: 0
+  left: -$arrowWidth
   margin-top: -$arrowWidth
   border-top: $arrowWidth solid transparent
   border-bottom: $arrowWidth solid transparent
-  border-left: $arrowWidth solid $color
-=popover-arrow-bottom($arrowWidth: 5px, $color: $black)
-  top: 0
+  border-right: $arrowWidth solid #ccc
+  border-right: $arrowWidth solid $color
+  &:after
+    border-top: ($arrowWidth - 1) solid transparent
+    border-bottom: ($arrowWidth - 1) solid transparent
+    border-right: ($arrowWidth - 1) solid #fff
+    bottom: -$arrowWidth + 1
+    left: 1px
+
+=popover-arrow-bottom($arrowWidth: 10px, $color: rgba(0,0,0,.2))
+  top: -$arrowWidth
   left: 50%
   margin-left: -$arrowWidth
   border-left: $arrowWidth solid transparent
   border-right: $arrowWidth solid transparent
+  border-bottom: $arrowWidth solid #ccc
   border-bottom: $arrowWidth solid $color
-=popover-arrow-right($arrowWidth: 5px, $color: $black)
+  &:after
+    border-left: ($arrowWidth - 1) solid transparent
+    border-right: ($arrowWidth - 1) solid transparent
+    border-bottom: ($arrowWidth - 1) solid #f5f5f5
+    top: 1px
+    left: -$arrowWidth + 1
+
+=popover-arrow-left($arrowWidth: 10px, $color: rgba(0,0,0,.2))
   top: 50%
-  left: 0
+  right: -$arrowWidth
   margin-top: -$arrowWidth
   border-top: $arrowWidth solid transparent
   border-bottom: $arrowWidth solid transparent
-  border-right: $arrowWidth solid $color
-  
+  border-left: $arrowWidth solid #ccc
+  border-left: $arrowWidth solid $color
+  &:after
+    border-top: ($arrowWidth - 1) solid transparent
+    border-bottom: ($arrowWidth - 1) solid transparent
+    border-left: ($arrowWidth - 1) solid #fff
+    bottom: -$arrowWidth + 1
+    right: 1px
+
 
 // Grid System
 // -----------
@@ -497,7 +562,7 @@
   .navbar-fixed-top .container,
   .navbar-fixed-bottom .container
     +core-grid-span($gridColumns, $gridColumnWidth, $gridGutterWidth)
-    
+
   @for $i from 1 through $gridColumns
     .span#{$i}
       +core-grid-span($i, $gridColumnWidth, $gridGutterWidth)
@@ -510,6 +575,14 @@
 =fluid-grid-span($columns, $fluidGridColumnWidth, $fluidGridGutterWidth)
   width: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1)
   *width: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5px / $gridRowWidth * 100 * 1%
+
+=fluid-grid-offset($columns, $fluidGridColumnWidth, $fluidGridGutterWidth)
+   margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) + $fluidGridGutterWidth * 2
+   *margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5px / $gridRowWidth * 100 * 1% + $fluidGridGutterWidth * 2 - 0.5px / $gridRowWidth * 100 * 1%
+
+=fluid-grid-offset-first-child($columns, $fluidGridColumnWidth, $fluidGridGutterWidth)
+   margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) + $fluidGridGutterWidth
+   *margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5px / $gridRowWidth * 100 * 1% + $fluidGridGutterWidth - 0.5px / $gridRowWidth * 100 * 1%
   
 =fluid-grid-generate($fluidGridColumnWidth, $fluidGridGutterWidth)
   .row-fluid
@@ -529,6 +602,12 @@
       .span#{$i}
         +fluid-grid-span($i, $fluidGridColumnWidth, $fluidGridGutterWidth)
 
+    @for $i from 1 to $gridColumns
+      .offset#{$i}
+        +fluid-grid-offset($i, $fluidGridColumnWidth, $fluidGridGutterWidth)
+      .offset#{$i}:first-child
+        +fluid-grid-offset-first-child($i, $fluidGridColumnWidth, $fluidGridGutterWidth)
+
   
 =input-grid-span($columns, $gridColumnWidth, $gridGutterWidth)
   width: $gridColumnWidth * $columns + $gridGutterWidth * ($columns - 1) - 10
@@ -538,8 +617,13 @@
   textarea,
   .uneditable-input
     margin-left: 0  // override margin-left from core grid system
-    @for $i from 1 through $gridColumns
-      &.span#{$i}
-        +input-grid-span($i, $gridColumnWidth, $gridGutterWidth)
+
+  // Space grid-sized controls properly if multiple per line
+  .controls-row [class*="span"] + [class*="span"]
+    margin-left: $gridGutterWidth
+
+  @for $i from 1 through $gridColumns
+    &.span#{$i}
+      +input-grid-span($i, $gridColumnWidth, $gridGutterWidth)
       
   
