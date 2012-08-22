@@ -522,12 +522,12 @@
   *width: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5px / $gridRowWidth * 100 * 1%
 
 =fluid-grid-offset($columns, $fluidGridColumnWidth, $fluidGridGutterWidth)
-   margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) + $fluidGridGutterWidth * 2
-   *margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5px / $gridRowWidth * 100 * 1% + $fluidGridGutterWidth * 2 - 0.5px / $gridRowWidth * 100 * 1%
+  margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) + $fluidGridGutterWidth * 2
+  *margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5px / $gridRowWidth * 100 * 1% + $fluidGridGutterWidth * 2 - 0.5px / $gridRowWidth * 100 * 1%
 
 =fluid-grid-offset-first-child($columns, $fluidGridColumnWidth, $fluidGridGutterWidth)
-   margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) + $fluidGridGutterWidth
-   *margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5px / $gridRowWidth * 100 * 1% + $fluidGridGutterWidth - 0.5px / $gridRowWidth * 100 * 1%
+  margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) + $fluidGridGutterWidth
+  *margin-left: $fluidGridColumnWidth * $columns + $fluidGridGutterWidth * ($columns - 1) - 0.5px / $gridRowWidth * 100 * 1% + $fluidGridGutterWidth - 0.5px / $gridRowWidth * 100 * 1%
   
 =fluid-grid-generate($fluidGridColumnWidth, $fluidGridGutterWidth)
   .row-fluid
@@ -568,7 +568,9 @@
     margin-left: $gridGutterWidth
 
   @for $i from 1 through $gridColumns
-    &.span#{$i}
+    input.span#{$i},
+    textarea.span#{$i},
+    .uneditable-input.span#{$i}
       +input-grid-span($i, $gridColumnWidth, $gridGutterWidth)
       
   
