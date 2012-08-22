@@ -78,6 +78,17 @@
     display: inline-block  // redeclare so they don't wrap to new lines
     width: auto
 
+  // Modals
+  .modal
+    position: fixed
+    top:   20px
+    left:  20px
+    right: 20px
+    width: auto
+    margin: 0
+    &.fade.in
+      top: auto
+
 
 
 // UP TO LANDSCAPE PHONE
@@ -120,14 +131,9 @@
 
   // Modals
   .modal
-    position: fixed
     top:   10px
     left:  10px
     right: 10px
-    width: auto
-    margin: 0
-    &.fade.in
-      top: auto
       
   .modal-header .close
     padding: 10px
