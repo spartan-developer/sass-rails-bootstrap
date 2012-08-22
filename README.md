@@ -20,7 +20,7 @@ end
 Then include the following line in your Gemfile and you're all set:
 
 ```ruby
-gem 'sass-rails-bootstrap', '2.0.4'
+gem 'sass-rails-bootstrap'
 ```
 
 
@@ -76,8 +76,8 @@ Alternatively, you could include only the files you need:
 
 This gem will directly track the semantic versioning releases of the Twitter Bootstrap project. Our major and minor versions will always match to theirs.
 
-Currently, this gem reflects the Bootstrap version 2.0.4 up to the commit:
-https://github.com/twitter/bootstrap/commit/857b8fb8be81178d14f59c126c1381b09aff7c0f
+Currently, this gem reflects the Bootstrap version 2.1.0 up to the commit:
+https://github.com/twitter/bootstrap/commit/320b75de63f347027774ba7353eea7f6937ab14b
 
 
 ## Copyright and license
