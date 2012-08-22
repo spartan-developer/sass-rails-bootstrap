@@ -1,5 +1,5 @@
 /*!
- * Bootstrap v2.0.4
+ * Bootstrap v2.1.0
  *
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -43,8 +43,7 @@
 
 // Components: Nav
 @import "bootstrap/navs";
-//@import "bootstrap/navbar";
-@import "bootstrap/navbar-redux";
+@import "bootstrap/navbar";
 @import "bootstrap/subnav";
 @import "bootstrap/breadcrumbs";
 @import "bootstrap/pagination";

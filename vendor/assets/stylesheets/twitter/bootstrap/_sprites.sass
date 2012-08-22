@@ -24,7 +24,16 @@
   background-image: image-url($iconSpritePath)
   background-position: 14px 14px
   background-repeat: no-repeat
-.icon-white
+  margin-top: 1px
+
+// White icons with optional class, or on hover/active states of certain elements
+.icon-white,
+.nav > .active > a > [class^="icon-"],
+.nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class*=" icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-menu > .active > a > [class*=" icon-"]
   background-image: image-url($iconWhiteSpritePath)
 
 .icon-glass

@@ -1,5 +1,5 @@
 /* ===========================================================
- * bootstrap-popover.js v2.0.4
+ * bootstrap-popover.js v2.1.0
  * http://twitter.github.com/bootstrap/javascript.html#popovers
  * ===========================================================
  * Copyright 2012 Twitter, Inc.
@@ -26,7 +26,7 @@
  /* POPOVER PUBLIC CLASS DEFINITION
   * =============================== */
 
-  var Popover = function ( element, options ) {
+  var Popover = function (element, options) {
     this.init('popover', element, options)
   }
 
@@ -72,9 +72,7 @@
     }
 
   , destroy: function () {
-      var $e = this.$element
-      $e.off()
-      $e.removeData('popover')
+      this.hide().$element.off('.' + this.type).removeData(this.type)
     }
 
   })
@@ -97,6 +95,7 @@
 
   $.fn.popover.defaults = $.extend({} , $.fn.tooltip.defaults, {
     placement: 'right'
+  , trigger: 'click'
   , content: ''
   , template: '<div class="popover"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
   })

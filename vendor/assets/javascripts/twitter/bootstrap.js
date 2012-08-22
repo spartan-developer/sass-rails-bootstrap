@@ -1,3 +1,4 @@
+//= require twitter/bootstrap/affix
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/button
 //= require twitter/bootstrap/carousel
